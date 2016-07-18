@@ -12,6 +12,7 @@
 
     <groupId>com.cwh</groupId>
     <artifactId>common</artifactId>
+    <name>platform:${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
