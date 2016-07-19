@@ -25,6 +25,7 @@
         <mybatis.version>3.2.4</mybatis.version>
         <servlet.api.version>2.5</servlet.api.version>
         <!--start dbcp 连接池 -->
+        <druid.version>1.0.5</druid.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
         <commons-pool.version>1.5.4</commons-pool.version>
         <!--end dbcp 连接池 -->
@@ -133,6 +134,14 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- DruidDataSource -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
             <!-- pushlet -->
             <dependency>
                 <groupId>nl.justobjects</groupId>
