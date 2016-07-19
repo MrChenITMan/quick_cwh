@@ -36,6 +36,7 @@
         <!--基本属性url、user、password-->
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
         <property name="password" value="${jdbc.password}"/>
 
         <!--配置初始化大小、最小、最大-->
@@ -63,7 +64,7 @@
     <!--mybatis文件配置，扫描所有mapper文件-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"
           p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:com/cwh/quick/dao/*.xml"/>
+          p:mapperLocations="classpath:com/cwh/quick/dao/xml/*.xml"/>
 
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.cwh.quick.web.dao"
@@ -90,7 +91,7 @@
 
     <!-- 事务 aop 配置 -->
     <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* com.eliteams.quick4j.web.service..*(..))"/>
+        <aop:pointcut id="serviceMethods" expression="execution(* com.cwh.quick.service..*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
 
