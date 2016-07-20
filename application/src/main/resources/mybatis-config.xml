@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties>
-        <property name="dialectClass" value="com.eliteams.quick4j.core.feature.orm.dialect.MySql5Dialect"/>
+        <property name="dialectClass" value="com.eliteams.quick4j.com.cwh.quick.dialect.MySql5Dialect"/>
     </properties>
 </configuration>

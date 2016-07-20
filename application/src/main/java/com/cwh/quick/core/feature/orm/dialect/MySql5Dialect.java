@@ -1,4 +1,4 @@
-package core.feature.orm.dialect;
+package com.cwh.quick.core.feature.orm.dialect;
 
 /**
  * MySQL数据库方言
@@ -7,15 +7,17 @@ package core.feature.orm.dialect;
  */
 public class MySql5Dialect extends Dialect
 {
+    protected static final String SQL_END_DELIMITER = ";";
+
     @Override
     public String getLimitString(String sql, int offset, int limit)
     {
-        return null;
+        return Mysql5PageHepler.getLimitString(sql,offset,limit);
     }
 
     @Override
     public String getCountString(String sql)
     {
-        return null;
+        return Mysql5PageHepler.getCountString(sql);
     }
 }

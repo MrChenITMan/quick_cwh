@@ -1,4 +1,4 @@
-package core.feature.orm.dialect;
+package com.cwh.quick.core.feature.orm.dialect;
 
 /**
  * 数据库方言抽象类
