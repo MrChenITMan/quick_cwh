@@ -91,7 +91,7 @@
 
     <!-- 事务 aop 配置 -->
     <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* com.cwh.quick.service..*(..))"/>
+        <aop:pointcut id="serviceMethods" expression="execution(* com.cwh.quick.web.service..*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
 

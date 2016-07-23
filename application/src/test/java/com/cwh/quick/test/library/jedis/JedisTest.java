@@ -1,4 +1,4 @@
-package java.com.cwh.quick.test.library.jedis;
+package com.cwh.quick.test.library.jedis;
 
 import com.cwh.quick.core.feature.cache.redis.RedisCache;
 import com.cwh.quick.core.feature.test.TestSupport;
@@ -19,7 +19,7 @@ public class JedisTest extends TestSupport
     @Test
     public void testSet()
     {
-        redisCache.cache("anchor", "StarZou", 1 * 60 * 24);
+        redisCache.cache("anchor", "cwh", 1 * 60 * 24);
     }
 
     @Test
