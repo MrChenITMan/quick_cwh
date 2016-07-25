@@ -82,7 +82,7 @@
         </dependency>
         <!-- springframe end -->
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-explorer</artifactId>
             <version>5.16</version>
@@ -115,7 +115,7 @@
             <groupId>org.activiti</groupId>
             <artifactId>activiti-rest</artifactId>
             <version>5.16</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-codec</artifactId>
@@ -271,10 +271,10 @@
             <version>1.3.2</version>
         </dependency>
         <!-- pushlet -->
-        <dependency>
+        <!--<dependency>
             <groupId>nl.justobjects</groupId>
             <artifactId>pushlet</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- hgsoft框架 -->
         <!--<dependency>
             <groupId>cn.com.hgsoft.framework</groupId>
@@ -323,6 +323,26 @@
     <build>
         <finalName>application</finalName>
         <testSourceDirectory>src/test</testSourceDirectory>
+
+        <!-- 配置maven对resource文件过滤 -->
+        <resources>
+            <resource>
+                <directory>src/main/java/com/cwh/quick/web/dao/xml</directory>
+                <includes>
+                    <include>*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

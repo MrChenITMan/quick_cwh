@@ -6,6 +6,8 @@ import org.junit.Test;
 import javax.annotation.Resource;
 
 /**
+ * SpiderTest : 爬虫测试类
+ *
  * Created by cwh on 2016/7/25.
  */
 public class SpiderTest extends TestSupport
