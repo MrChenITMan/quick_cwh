@@ -26,7 +26,9 @@
     <!--引入配置文件-->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
-            <value>classpath*:application.properties</value>
+            <list>
+                <value>classpath*:application.properties</value>
+            </list>
         </property>
     </bean>
 
@@ -52,6 +54,11 @@
 
         <!--配置一个连接在池中最小生存的时间，单位是毫秒-->
         <property name="minEvictableIdleTimeMillis" value="${ds.minEvictableIdleTimeMillis}"/>
+
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
 
         <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
         <property name="poolPreparedStatements" value="false"/>
