@@ -12,7 +12,7 @@
 
     <properties>
         <eap.version>0.7-SNAPSHOT</eap.version>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
         <mybatis.version>3.2.2</mybatis.version>
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <!-- log4j日志文件管理包版本 -->

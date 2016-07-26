@@ -1,10 +1,13 @@
 package com.cwh.quick.web.model;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * 权限模型
  *
  * Created by cwh on 2016/7/25.
  */
+@Alias("Permission")
 public class Permission {
     private Long id;
 
