@@ -38,6 +38,7 @@
         <jeval.version>0.9.4</jeval.version>
         <activemq.version>5.8.0</activemq.version>
         <quartz.version>1.8.4</quartz.version>
+        <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
     </properties>
 
 
