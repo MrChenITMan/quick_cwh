@@ -1,12 +1,14 @@
 package com.cwh.quick.web.model;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * 权限模型
  *
  * Created by cwh on 2016/7/25.
  */
-public class Permission
-{
+@Alias("Permission")
+public class Permission {
     private Long id;
 
     private String permissionName;
@@ -51,4 +53,5 @@ public class Permission
     public String toString() {
         return "Permission [id=" + id + ", permissionName=" + permissionName + ", permissionSign=" + permissionSign + ", description=" + description + "]";
     }
+
 }

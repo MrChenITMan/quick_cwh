@@ -8,11 +8,9 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 权限 Dao 接口
- *
- * Created by cwh on 2016/7/25.
+ * Created by cwh on 2016/7/26.
  */
-public interface PermissionMapper extends GenericDao<Permission,Long>
+public interface PermissionMapper extends GenericDao<Permission, Long>
 {
     int countByExample(PermissionExample example);
 

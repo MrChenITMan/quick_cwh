@@ -10,8 +10,8 @@ import java.util.List;
  *
  * Created by cwh on 2016/7/25.
  */
-public interface GenericService<Model,PK>
-{
+public interface GenericService<Model, PK> {
+
     /**
      * 插入对象
      *

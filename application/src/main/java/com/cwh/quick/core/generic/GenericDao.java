@@ -10,8 +10,7 @@ package com.cwh.quick.core.generic;
  *
  * Created by cwh on 2016/7/25.
  */
-public interface GenericDao <Model, PK>
-{
+public interface GenericDao<Model, PK> {
 
     /**
      * 插入对象
@@ -41,4 +40,5 @@ public interface GenericDao <Model, PK>
      * @return
      */
     Model selectByPrimaryKey(PK id);
+
 }

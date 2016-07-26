@@ -7,6 +7,7 @@
         <property name="dialectClass" value="com.cwh.quick.core.feature.orm.dialect.MySql5Dialect"/>
     </properties>
 
+    <!-- 配置mybatis的缓存，延迟加载等等一系列属性 -->
     <settings>
 
         <!-- 全局映射器启用缓存 -->
