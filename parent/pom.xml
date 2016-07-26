@@ -14,6 +14,7 @@
         <eap.version>0.7-SNAPSHOT</eap.version>
         <spring.version>3.2.4.RELEASE</spring.version>
         <mybatis.version>3.2.2</mybatis.version>
+        <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.6.6</slf4j.version>
         <log4j.version>1.2.12</log4j.version>
@@ -22,7 +23,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
         <mysql.version>5.1.29</mysql.version>
-        <!--<mybatis.version>3.2.4</mybatis.version>-->
         <servlet.api.version>2.5</servlet.api.version>
         <!--start dbcp 连接池 -->
         <druid.version>1.0.5</druid.version>
@@ -119,7 +119,7 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>1.2.2</version>
+                <version>${mybatis.spring.version}</version>
             </dependency>
             <!-- mysql驱动包 -->
             <dependency>
@@ -189,7 +189,7 @@
                 <version>${servlet.api.version}</version>
             </dependency>
 
-            <dependency>
+            <!--<dependency>
                 <groupId>org.activiti</groupId>
                 <artifactId>activiti-engine</artifactId>
                 <version>${activiti.version}</version>
@@ -218,7 +218,7 @@
                 <groupId>org.activiti</groupId>
                 <artifactId>activiti-rest</artifactId>
                 <version>${activiti.version}</version>
-            </dependency>
+            </dependency>-->
 
             <!-- 权限管理 -->
             <dependency>
