@@ -12,12 +12,12 @@ public class MySql5Dialect extends Dialect
     @Override
     public String getLimitString(String sql, int offset, int limit)
     {
-        return Mysql5PageHepler.getLimitString(sql,offset,limit);
+        return MySql5PageHepler.getLimitString(sql,offset,limit);
     }
 
     @Override
     public String getCountString(String sql)
     {
-        return Mysql5PageHepler.getCountString(sql);
+        return MySql5PageHepler.getCountString(sql);
     }
 }

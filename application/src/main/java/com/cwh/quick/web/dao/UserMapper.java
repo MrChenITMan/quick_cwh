@@ -19,7 +19,7 @@ public interface UserMapper extends GenericDao<User,Long>
 {
     int countByExample(UserExample example);
 
-    int deletByExample(UserExample example);
+    int deleteByExample(UserExample example);
 
     int deleteByPrimaryKey(Long id);
 
@@ -31,9 +31,9 @@ public interface UserMapper extends GenericDao<User,Long>
 
     User selectByPrimaryKey(Long id);
 
-    int updateByExample(@Param("record") User user,@Param("example") UserExample example);
-
     int updateByExampleSelective(@Param("record") User user,@Param("example") UserExample example);
+
+    int updateByExample(@Param("record") User user,@Param("example") UserExample example);
 
     int updateByPrimaryKeySelective(User user);
 

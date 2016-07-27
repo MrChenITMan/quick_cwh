@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cwh.quick.web.dao.UserMapper">
-    <resultMap id="UserResultMap" type="user">
-        <id column="id" property="id"/>
-        <result column="password" property="password"/>
-        <result column="username" property="username"/>
-        <result column="state" property="state"/>
-        <result column="create_time" property="createTime"/>
+    <resultMap id="BaseResultMap" type="com.cwh.quick.web.model.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="CHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -38,46 +38,76 @@
             </foreach>
         </where>
     </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
     <sql id="Base_Column_List">
         id,username,password,state,create_time
     </sql>
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="UserExample">
-        SELECT
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cwh.quick.web.model.UserExample">
+        select
         <if test="distinct">
-            DISTINCT
+            distinct
         </if>
-        <include refid="Base_Colum_List"/>
-        FROM user
+        <include refid="Base_Column_List"/>
+        from user
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
         <if test="orderByClause != null">
-            ORDER BY ${orderByClause}
+            order by ${orderByClause}
         </if>
     </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
-        <include refid="Base_Column_list"/>
+        <include refid="Base_Column_List"/>
         from user
-        where id=#{id}
+        where id = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-        DELETE FROM user
-        WHERE id = #{id}
+        delete from user
+        where id = #{id,jdbcType=BIGINT}
     </delete>
-    <delete id="deleteByExample" parameterType="UserExample">
-        DELETE FROM user
+    <delete id="deleteByExample" parameterType="com.cwh.quick.web.model.UserExample">
+        delete from user
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="User">
+    <insert id="insert" parameterType="com.cwh.quick.web.model.User">
         insert into user (id, username, password,
         state, create_time)
         values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=CHAR},
         #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
     </insert>
-    <insert id="insertSelective" parameterType="User">
+    <insert id="insertSelective" parameterType="com.cwh.quick.web.model.User">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -114,7 +144,7 @@
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="UserExample"
+    <select id="countByExample" parameterType="com.cwh.quick.web.model.UserExample"
             resultType="java.lang.Integer">
         select count(*) from user
         <if test="_parameter != null">
@@ -155,7 +185,7 @@
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
-    <update id="updateByPrimaryKeySelectiveSelective" parameterType="User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.cwh.quick.web.model.User">
         update user
         <set>
             <if test="username != null">
@@ -173,7 +203,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="User">
+    <update id="updateByPrimaryKey" parameterType="com.cwh.quick.web.model.User">
         update user
         set username = #{username,jdbcType=VARCHAR},
         password = #{password,jdbcType=CHAR},
@@ -193,7 +223,7 @@
 
     <!-- 分页条件查询 -->
     <select id="selectByExampleAndPage" resultMap="BaseResultMap"
-            parameterType="UserExample">
+            parameterType="com.cwh.quick.web.model.UserExample">
         select
         <if test="distinct">
             distinct

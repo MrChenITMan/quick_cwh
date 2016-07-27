@@ -1,7 +1,5 @@
 package com.cwh.quick.web.model;
 
-import org.apache.ibatis.type.Alias;
-
 import java.util.Date;
 
 /**
@@ -9,13 +7,17 @@ import java.util.Date;
  *
  * Created by cwh on 2016/7/26.
  */
-@Alias("user")
 public class User
 {
     private Long id;
+
     private String username;
+
     private String password;
+
     private String state;
+
+    private Date createTime;
 
     @Override
     public String toString()
@@ -28,8 +30,6 @@ public class User
                 ", createTime=" + createTime +
                 '}';
     }
-
-    private Date createTime;
 
     public Long getId()
     {

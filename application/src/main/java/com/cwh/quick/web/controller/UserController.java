@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 /**
  * 用户控制层
@@ -42,7 +43,7 @@ public class UserController
      * @param request
      * @return
      */
-    @RequestMapping(value = "/login",method = RequestMethod.DELETE.POST)
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(@Valid User user, BindingResult result, Model model, HttpServletRequest request){
         try
         {

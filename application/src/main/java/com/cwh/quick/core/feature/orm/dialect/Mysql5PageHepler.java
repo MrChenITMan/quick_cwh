@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Created by cwh on 2016/7/20.
  */
-public class Mysql5PageHepler
+public class MySql5PageHepler
 {
     /**
      * 得到查询总数的sql
