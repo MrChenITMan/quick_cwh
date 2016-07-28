@@ -22,7 +22,7 @@
         <jetty.version>7.6.3.v20120416</jetty.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.7</jdk.version>
-        <mysql.version>5.1.29</mysql.version>
+        <mysql.version>5.1.30</mysql.version>
         <servlet.api.version>2.5</servlet.api.version>
         <!--start dbcp 连接池 -->
         <druid.version>1.0.5</druid.version>
@@ -40,7 +40,6 @@
         <quartz.version>1.8.4</quartz.version>
         <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
         <commons.codec.version>1.9</commons.codec.version>
-        <mysql.connector.version>5.1.30</mysql.connector.version>
 
         <!-- plugin setting -->
         <mybatis.generator.generatorConfig.xml>${basedir}/src/test/resources/generatorConfig.xml</mybatis.generator.generatorConfig.xml>
@@ -371,13 +370,6 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz</artifactId>
                 <version>${quartz.version}</version>
-            </dependency>
-
-            <!-- mysql-connector -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version>
             </dependency>
 
         </dependencies>

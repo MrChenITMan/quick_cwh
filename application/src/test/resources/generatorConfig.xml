@@ -39,7 +39,7 @@
         </javaClientGenerator>
 
         <!--对应数据库表名-->
-        <table tableName="">
+        <table tableName="ceshi" domainObjectName="ceshi">
 
         </table>
     </context>

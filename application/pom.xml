@@ -338,11 +338,6 @@
             <version>${commons.codec.version}</version>
         </dependency>
 
-        <!-- mysql-connector -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
