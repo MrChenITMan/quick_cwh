@@ -33,16 +33,46 @@ public class MySql5PageHepler
     }
 
     /**
-     *得到分页的sql
-     * @param querySelect
+     * 得到最后一个Order By的插入点位置
+     *
+     * @return 返回最后一个Order By插入点的位置
+     */
+    private static int getLastOrderInsertPoint(String querySelect) {
+        int orderIndex = querySelect.toLowerCase().lastIndexOf("order by");
+        if (orderIndex == -1) {
+            orderIndex = querySelect.length();
+        }
+        if (!isBracketCanPartnership(querySelect.substring(orderIndex, querySelect.length()))) {
+            throw new RuntimeException("My SQL 分页必须要有Order by 语句!");
+        }
+        return orderIndex;
+    }
+
+    /**
+     * 得到分页的SQL
+     *
      * @param offset
+     *            偏移量
      * @param limit
-     * @return
+     *            位置
+     * @return 分页SQL
      */
     public static String getLimitString(String querySelect,int offset,int limit){
         querySelect = getLineSql(querySelect);
         String sql = querySelect + " limit " + offset + " ,"+limit;
         return sql;
+
+    }
+
+    /**
+     * 将SQL语句变成一条语句，并且每个单词的间隔都是1个空格
+     *
+     * @param sql
+     *            SQL语句
+     * @return 如果sql是NULL返回空，否则返回转化后的SQL
+     */
+    private static String getLineSql(String sql) {
+        return sql.replaceAll("[\r\n]", " ").replaceAll("\\s{2,}", " ");
     }
 
     /**
@@ -64,30 +94,11 @@ public class MySql5PageHepler
     }
 
     /**
-     * 得到最后一个order by的插入点位置
+     * 判断括号"()"是否匹配,并不会判断排列顺序是否正确
      *
-     * @param querySelect
-     * @return 返回最后一个order by插入点的位置
-     */
-    private static int getLastOrderInsertPoint(String querySelect)
-    {
-        int orderIndex = querySelect.toLowerCase().lastIndexOf("order by");
-        if (orderIndex == -1)
-        {
-            orderIndex = querySelect.length();
-        }
-        if (!isBracketCanPartnership(querySelect.substring(orderIndex, querySelect.length())))
-        {
-            throw new RuntimeException("My SQL分页必须要有order by语句！");
-        }
-        return 0;
-    }
-
-    /**
-     * 判断括号“（）”是否匹配，并不会判断排列顺序是否正确
-     *
-     * @param text 要判断的文本
-     * @return 如果匹配返回true，否则返回false
+     * @param text
+     *            要判断的文本
+     * @return 如果匹配返回TRUE,否则返回FALSE
      */
     private static boolean isBracketCanPartnership(String text)
     {
@@ -102,8 +113,9 @@ public class MySql5PageHepler
      * 得到一个字符在另一个字符串中出现的次数
      *
      * @param text
+     *            文本
      * @param ch
-     * @return
+     *            字符
      */
     private static int getIndexOfCount(String text, char ch)
     {
@@ -113,16 +125,5 @@ public class MySql5PageHepler
             count = (text.charAt(i) == ch) ? count + 1 : count;
         }
         return count;
-    }
-
-    /**
-     * 将SQL语句变成一条语句，并且每个单词的间隔都是1个空格
-     *
-     * @param sql
-     * @return 如果sql是NULL返回NULL，否则返回转化后的SQL
-     */
-    private static String getLineSql(String sql)
-    {
-        return sql.replaceAll("[\r\n]", " ").replaceAll("\\s{2,}", " ");
     }
 }
