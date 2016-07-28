@@ -24,7 +24,7 @@ import java.util.List;
  * <p>
  * Created by cwh on 2016/7/27.
  */
-@Component(value = "SecurityRealm")
+@Component(value = "securityRealm")
 public class SecurityRealm extends AuthorizingRealm
 {
     @Resource
